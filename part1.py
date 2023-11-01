@@ -16,7 +16,7 @@ def look_up(alphabet, target):
     return -1
 
 
-"@Part Two"
+"@Part One"
 
 
 def compute_cipher(n, pairs = None, is_subs = False):
@@ -50,17 +50,6 @@ def encrypt_char(alphabet, cipher, ch):
     return ch
 
 
-def decrypt_char(alphabet, cipher, ch):
-    if ch.isalpha():
-        index = look_up(cipher, ch)
-        if index != -1:
-            if ch.islower():
-                return alphabet[index]
-            else:
-                return alphabet[index].upper()
-    return ch
-
-
 def encrypt_str(alphabet, cipher, s):
     str_arr = list(s)
     result = ""
@@ -68,27 +57,10 @@ def encrypt_str(alphabet, cipher, s):
         result += encrypt_char(alphabet, cipher, str_arr[ch])
     return result
 
-
-def decrypt_str(alphabet, cipher, s):
-    str_arr = list(s)
-    result = ""
-    for ch in range(0, len(str_arr)):
-        result += decrypt_char(alphabet, cipher, str_arr[ch])
-    return result
-
-
 file1 = open(filename, 'r')
 Lines = file1.readlines()
 
-arr2 = key.split("-")
-temp = compute_cipher(20, arr2, is_subs=True)
-
-if process == "-encrypt":
-    encrypted = encrypt_str(ALPHABET, temp, Lines[0])
-    print("Encrypted: " + encrypted)
-
-elif process == "-decrypt":
-    decrypted = decrypt_str(ALPHABET, temp, "rkxrkx")
-    print("Decrypted: " + decrypted)
-else:
-    print("Unknown command")
+#part1
+arr = compute_cipher(20)
+encrypted = encrypt_str(ALPHABET, arr, "Et tu, Brute?")
+print(encrypted)

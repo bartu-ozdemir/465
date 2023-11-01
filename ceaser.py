@@ -1,7 +1,7 @@
 import sys
-
-"""process = sys.argv[1]
-filename= sys.argv[2]
+"""
+process = sys.argv[1]
+filename = sys.argv[2]
 key = sys.argv[3]"""
 ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
@@ -85,11 +85,12 @@ else:
 
 
 #part1
-#arr = compute_cipher(20)
-#encrypted = encrypt_str(ALPHABET, arr, "Et tu, Brute?")
-#print(encrypted)
+arr = compute_cipher(20)
+encrypted = encrypt_str(ALPHABET, arr, "Et tu, Brute?")
+print(encrypted)
 
 #part2
 arr2 = ["AR", "GK", "OX"]
 temp = compute_cipher(20, arr2, is_subs=True)
 encrypted = encrypt_str(ALPHABET, temp, "agoago")
+print(encrypted)
